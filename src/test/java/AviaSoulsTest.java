@@ -36,21 +36,36 @@ public class AviaSoulsTest {
     public void TicketSearchComparator() {
         AviaSouls manager = new AviaSouls();
         Ticket ticket1 = new Ticket("Москва", "Сочи", 12_000, 10, 14);
-        Ticket ticket2 = new Ticket("Москва", "Сочи", 16_000, 8, 12);
-        Ticket ticket3 = new Ticket("Москва", "Сочи", 13_000, 15, 19);
-        Ticket ticket4 = new Ticket("Москва", "Сочи", 17_000, 1, 5);
-        Ticket ticket5 = new Ticket("Москва", "Сочи", 15_000, 3, 7);
-        Ticket ticket6 = new Ticket("Москва", "Сочи", 11_000, 11, 15);
+        Ticket ticket2 = new Ticket("Москва", "Сочи", 11_000, 11, 15);
+        Ticket ticket3 = new Ticket("Москва", "Новороссийск", 11_000, 11, 15);
+        Ticket ticket4 = new Ticket("Москва", "Сочи", 16_000, 8, 12);
+        Ticket ticket5 = new Ticket("Москва", "Санкт-Петербург", 11_000, 11, 15);
+        Ticket ticket6 = new Ticket("Москва", "Сочи", 17_000, 1, 5);
+        Ticket ticket7 = new Ticket("Москва", "Симферополь", 11_000, 11, 15);
+        Ticket ticket8 = new Ticket("Москва", "Сочи", 15_000, 3, 7);
+        Ticket ticket9 = new Ticket("Москва", "Тюмень", 11_000, 11, 15);
+        Ticket ticket10 = new Ticket("Москва", "Сочи", 13_000, 15, 19);
         manager.add(ticket1);
         manager.add(ticket2);
         manager.add(ticket3);
         manager.add(ticket4);
         manager.add(ticket5);
         manager.add(ticket6);
+        manager.add(ticket7);
+        manager.add(ticket8);
+        manager.add(ticket9);
+        manager.add(ticket10);
 
-        Ticket[] tickets = {ticket6, ticket1, ticket3, ticket5, ticket2, ticket4};
 
+        Ticket[] tickets = {ticket2, ticket1, ticket10, ticket8, ticket4, ticket6};
         Assertions.assertArrayEquals(tickets, manager.search("Москва", "Сочи"));
+
+        Ticket[] ticket = {ticket9};
+        Assertions.assertArrayEquals(ticket, manager.search("Москва", "Тюмень"));
+
+        Assertions.assertEquals(null, manager.search("Москва", "Краснодар"));
+
+
 
     }
 

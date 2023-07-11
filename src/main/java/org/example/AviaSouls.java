@@ -54,7 +54,11 @@ public class AviaSouls {
         }
         Arrays.sort(result);
 
-        return result;
+        if (result.length != 0) {
+            return result;
+        } else {
+            return null;
+        }
     }
 
     public Ticket[] searchAndSortBy(String from, String to, Comparator<Ticket> comparator) {
@@ -62,6 +66,8 @@ public class AviaSouls {
         Arrays.sort(resultSearch, comparator);
 
         return resultSearch;
+
     }
+
 }
 
